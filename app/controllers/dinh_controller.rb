@@ -1,0 +1,3 @@
+class DinhController < ApplicationController
+	
+end
