@@ -11,11 +11,12 @@ class UsersController < ApplicationController
   	# debugger
   end
   def create
-   @user = User.new(user_params)    # Not the final implementation!
-   binding.pry
-    if @user.save
-      # Handle a successful save.
+   @user = User.new(user_params) #final implementation!
 
+    if @user.save
+      flash[:success] = "Welcome to the Sample App!"
+        redirect_to @user
+        # binding.pry
     else
       render 'new'
     end
@@ -24,5 +25,7 @@ class UsersController < ApplicationController
    def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+        # => Strong Parameters
+
     end
 end
