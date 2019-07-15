@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
     	if user && user.authenticate(params[:session][:password])
     			binding.pry
     	else
+           
+          
     		render 'new'
     	end
     end
