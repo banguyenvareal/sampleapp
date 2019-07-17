@@ -25,7 +25,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
   end
     test "authenticated? should return false for a user with nil digest" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
