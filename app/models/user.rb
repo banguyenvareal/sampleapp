@@ -2,6 +2,7 @@ class User < ApplicationRecord
 	# validates :name, presence: true, length: { maximum: 5 }
 	 # before_save { self.email = email.downcase }
 	 attr_accessor :remember_token, :activation_token, :reset_token
+    has_many :microposts, dependent: :destroy
 	  before_save { email.downcase! }
     before_save   :downcase_email
     before_create :create_activation_digest

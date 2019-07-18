@@ -18,7 +18,7 @@ class PasswordResetsController < ApplicationController
     end
   end
   def edit
-  	binding.pry
+  
   end
   def update
     if params[:user][:password].empty?                  # Case (3)
