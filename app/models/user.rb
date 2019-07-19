@@ -3,6 +3,11 @@ class User < ApplicationRecord
 	 # before_save { self.email = email.downcase }
 	 attr_accessor :remember_token, :activation_token, :reset_token
     has_many :microposts, dependent: :destroy
+    has_many :many_tests, class_name:  "TestModel", foreign_key: "user_id"
+    binding.pry
+    has_many :ing, class_name:  "Relationship", foreign_key: "follower_id", source: :followed
+    has_many :ed, class_name:  "Relationship", foreign_key: "followed_id", source: :follower
+
 	  before_save { email.downcase! }
     before_save   :downcase_email
     before_create :create_activation_digest
